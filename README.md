@@ -1,6 +1,6 @@
 # Awesome SMLs
 
-This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with Ollama:
+This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with [Ollama](https://ollama.com/):
 
 | Name                	| Size  	| Remark                                                                                                	| URL                                       	| Good on Pi5 	| Usable on Pi5 	|
 |---------------------	|-------	|-------------------------------------------------------------------------------------------------------	|-------------------------------------------	|-------------	|---------------	|
