@@ -1,0 +1,12 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
+    "terminal.integrated.fontSize": 10,
+    "editor.fontSize": 10,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": true,
+    "go.lintTool": "revive"
+  }
