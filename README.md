@@ -25,7 +25,7 @@ This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with [Ollama](h
 | Replete-Coder Qwen2 1.5b | 1.9GB | Coding capabilities + non-coding data, fully cleaned and uncensored | https://ollama.com/rouge/replete-coder-qwen2-1.5b:Q8 | x | x |
 | Dolphin-Phi 2.7b | 1.6GB | uncensored | https://ollama.com/library/dolphin-phi:2.7b |   | x |
 | Dolphin gemma2 2b | 1.6GB |   | https://ollama.com/CognitiveComputations/dolphin-gemma2:2b |   | x |
-| allenporter/xlam:1b | 873MB | **Tools** | https://ollama.com/allenporter/xlam:1.b |   | x |
+| allenporter/xlam:1b | 873MB | **Tools** | https://ollama.com/allenporter/xlam:1b |   | x |
 | sam4096/qwen2tools:0.5b | 352MB | **Tools** | https://ollama.com/sam4096/qwen2tools:0.5b | x | x |
 | sam4096/qwen2tools:1.5b | 935MB | **Tools** | https://ollama.com/sam4096/qwen2tools:1.5b |   | x |
 | mxbai-embed-large | 670MB | Only Embeddings | https://ollama.com/library/mxbai-embed-large:335m | x | x |
