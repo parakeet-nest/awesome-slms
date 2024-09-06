@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome SMLs</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Awesome SMLs</h1>
+    <p>This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with <a href="https://ollama.com/">Ollama</a>:</p>
+
+    <table id="smlTable" class="display">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Tag</th>
+                <th>Remark</th>
+                <th>Kind</th>
+                <th>URL</th>
+                <th>Good on Pi5</th>
+                <th>Usable on Pi5</th>
+            </tr>
+        </thead>
+        <tbody id="smlTableBody">
+            <!-- Content will be populated via JavaScript -->
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="data.js"></script>
+    <script>
+        $(document).ready(function() {
+            var tableData = '';
+
+            // Loop through the JSON data and populate the table rows
+            smlData.models.forEach(function(model) {
+                tableData += `
+                    <tr>
+                        <td>${model.name}</td>
+                        <td>${model.size}</td>
+                        <td>${model.tag}</td>
+                        <td>${model.remark}</td>
+                        <td>${model.kind}</td>
+                        <td><a href="${model.url}" target="_blank">${model.url}</a></td>
+                        <td>${model.good_on_pi5 ? 'Yes' : 'No'}</td>
+                        <td>${model.usable_on_pi5 ? 'Yes' : 'No'}</td>
+                    </tr>
+                `;
+            });
+
+            $('#smlTableBody').html(tableData);
+
+            // Initialize DataTables with 25 entries shown by default
+            $('#smlTable').DataTable({
+                "pageLength": 25
+            });
+        });
+    </script>
+</body>
+</html>
