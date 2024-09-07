@@ -292,6 +292,6 @@ const smlData =
         "url": "https://ollama.com/library/bge-m3",
         "good_on_pi5": false,
         "usable_on_pi5": true
-      },
+      }
     ]
   }
