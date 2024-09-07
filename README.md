@@ -32,3 +32,4 @@ This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with [Ollama](h
 | mxbai-embed-large | 670MB | 335M | Only Embeddings | embedding | https://ollama.com/library/mxbai-embed-large:335m | x | x |
 | nomic-embed-text | 274MB | 137M | Only Embeddings | embedding | https://ollama.com/library/nomic-embed-text:v1.5 | x | x |
 | Yi Coder 1.5b | 866MB | 1.5B | Code | code | https://ollama.com/library/yi-coder:1.5b |   | x |
+| bge-m3 | 1.2GB | 567M | Only Embeddings | embedding | https://ollama.com/library/bge-m3 |   | x |

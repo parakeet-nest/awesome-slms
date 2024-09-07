@@ -282,6 +282,16 @@ const smlData =
         "url": "https://ollama.com/library/yi-coder:1.5b",
         "good_on_pi5": false,
         "usable_on_pi5": true
-      }
+      },
+      {
+        "name": "bge-m3",
+        "size": "1.2GB",
+        "tag": "567M",
+        "remark": "Only Embeddings",
+        "kind": "embedding",
+        "url": "https://ollama.com/library/bge-m3",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
+      },
     ]
   }
