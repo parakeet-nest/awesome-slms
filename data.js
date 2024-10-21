@@ -114,6 +114,46 @@ const smlData =
         "usable_on_pi5": true
       },
       {
+        "name": "Qwen2.5 0.5b",
+        "size": "398MB",
+        "tag": "0.5B",
+        "remark": "",
+        "kind": "chat, tools",
+        "url": "https://ollama.com/library/qwen2.5:0.5b",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "Qwen2.5 1.5b",
+        "size": "986MB",
+        "tag": "1.5B",
+        "remark": "",
+        "kind": "chat, tools",
+        "url": "https://ollama.com/library/qwen2.5:1.5b",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "Qwen2.5 3b",
+        "size": "1.9GB",
+        "tag": "3B",
+        "remark": "",
+        "kind": "chat, tools",
+        "url": "https://ollama.com/library/qwen2.5:3b",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "Qwen2.5 Coder 1.5b",
+        "size": "986MB",
+        "tag": "1.5B",
+        "remark": "",
+        "kind": "code, tools",
+        "url": "https://ollama.com/library/qwen2.5-coder:1.5b",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
+      },
+      {
         "name": "Qwen2 0.5b",
         "size": "352MB",
         "tag": "0.5B",
@@ -292,6 +332,90 @@ const smlData =
         "url": "https://ollama.com/library/bge-m3",
         "good_on_pi5": false,
         "usable_on_pi5": true
+      },
+      {
+        "name": "reader-lm:0.5b",
+        "size": "352MB",
+        "tag": "0.5b",
+        "remark": "convert HTML to Markdown",
+        "kind": "",
+        "url": "https://ollama.com/library/reader-lm:0.5b",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "reader-lm:1.5b",
+        "size": "935MB",
+        "tag": "1.5b",
+        "remark": "convert HTML to Markdown",
+        "kind": "",
+        "url": "https://ollama.com/library/reader-lm:1.5b",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "shieldgemma:2b",
+        "size": "1.7GB",
+        "tag": "2b",
+        "remark": "evaluate the safety of text",
+        "kind": "",
+        "url": "https://ollama.com/library/shieldgemma:2b",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "llama-guard3:1b",
+        "size": "1.6GB",
+        "tag": "1b",
+        "remark": "evaluate the safety of text",
+        "kind": "",
+        "url": "https://ollama.com/library/llama-guard3:1b",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
       }
     ]
   }
+
+
+function generateMarkdownTable(data) {
+  const headers = [
+    'Name', 'Size', 'Tag', 'Remark', 'Kind', 'URL', 'Good on Pi5', 'Usable on Pi5'
+  ];
+
+  let markdown = `# ${data.title}\n\n${data.description}\n\n`;
+  markdown += `| ${headers.join(' | ')} |\n`;
+  markdown += `| ${headers.map(() => '---').join(' | ')} |\n`;
+
+  data.models.forEach(model => {
+    const row = [
+      model.name,
+      model.size,
+      model.tag,
+      model.remark,
+      model.kind,
+      `[Link](${model.url})`,
+      model.good_on_pi5 ? '✅' : '❌',
+      model.usable_on_pi5 ? '✅' : '❌'
+    ];
+    markdown += `| ${row.join(' | ')} |\n`;
+  });
+
+  return markdown;
+}
+  
+
+
+function generate() {
+  mdContent = `# Awesome SMLs
+
+This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with [Ollama](https://ollama.com/):`
+
+  mdContent += generateMarkdownTable(smlData)
+  const fs = require('fs')
+  fs.writeFileSync("README.md", mdContent);
+}
+
+// Only run the main function if this script is run directly (not imported)
+if (require.main === module) {
+  generate();
+}
