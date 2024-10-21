@@ -372,6 +372,26 @@ const smlData =
         "url": "https://ollama.com/library/llama-guard3:1b",
         "good_on_pi5": false,
         "usable_on_pi5": true
+      },
+      {
+        "name": "granite3-dense:2b",
+        "size": "1.6GB",
+        "tag": "2b",
+        "remark": "",
+        "kind": "chat, tools, embedding",
+        "url": "https://ollama.com/library/granite3-dense:2b",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "granite3-moe:1b",
+        "size": "822MB",
+        "tag": "1b",
+        "remark": "",
+        "kind": "chat, tools, embedding",
+        "url": "https://ollama.com/library/granite3-moe:1b",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
       }
     ]
   }

@@ -41,3 +41,5 @@ This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with Ollama
 | reader-lm:1.5b | 935MB | 1.5b | convert HTML to Markdown |  | [Link](https://ollama.com/library/reader-lm:1.5b) | ✅ | ✅ |
 | shieldgemma:2b | 1.7GB | 2b | evaluate the safety of text |  | [Link](https://ollama.com/library/shieldgemma:2b) | ❌ | ✅ |
 | llama-guard3:1b | 1.6GB | 1b | evaluate the safety of text |  | [Link](https://ollama.com/library/llama-guard3:1b) | ❌ | ✅ |
+| granite3-dense:2b | 1.6GB | 2b |  | chat, tools, embedding | [Link](https://ollama.com/library/granite3-dense:2b) | ❌ | ✅ |
+| granite3-moe:1b | 822MB | 1b |  | chat, tools, embedding | [Link](https://ollama.com/library/granite3-moe:1b) | ✅ | ✅ |
