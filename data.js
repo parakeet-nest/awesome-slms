@@ -406,9 +406,7 @@ function generateMarkdownTable(data) {
 
 
 function generate() {
-  mdContent = `# Awesome SMLs
-
-This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with [Ollama](https://ollama.com/):`
+  mdContent = ``
 
   mdContent += generateMarkdownTable(smlData)
   const fs = require('fs')
