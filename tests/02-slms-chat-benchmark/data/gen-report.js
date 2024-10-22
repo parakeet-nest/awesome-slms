@@ -6,8 +6,29 @@ const results = JSON.parse(fs.readFileSync('results.json', 'utf8'));
 // Sort the results by duration
 results.sort((a, b) => a.duration - b.duration);
 
+let markdown = `# Duration of a chat completion from a list of SLMs.
+
+**Prompt**:
+
+\`\`\`golang
+systemInstructions := \`You a useful AI agent.\`
+question := \`Who is Jean-Luc Picard?\`
+\`\`\`
+
+**Options**:
+
+\`\`\`golang
+Options:  map[string]interface{}{
+    "temperature": 0.0,
+    "num_predict": 200,
+}
+\`\`\`
+
+## On a Raspberry Pi 5 8GB RAM
+`
+
 // Create the Markdown table
-let markdown = `| Rank | Model | Duration (seconds) |\n`;
+markdown += `| Rank | Model | Duration (seconds) |\n`;
 markdown += `|------|--------|------------------|\n`;
 
 // Add each result to the table

@@ -17,7 +17,6 @@ Options:  map[string]interface{}{
 ```
 
 ## On a Raspberry Pi 5 8GB RAM
-
 | Rank | Model | Duration (seconds) |
 |------|--------|------------------|
 | 1 | `qwen:0.5b` | 2.57 |
