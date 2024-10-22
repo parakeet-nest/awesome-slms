@@ -1,80 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
+    <title>Awesome SLMs</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awesome SMLs</title>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8">
+  
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <script src="js/htmx.min.js"></script>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        .description {
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .filters select, .filters input {
+            padding: 0.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            background-color: white;
         }
         table {
             width: 100%;
-            margin: 20px 0;
             border-collapse: collapse;
+            margin-top: 1rem;
         }
         th, td {
-            padding: 10px;
+            padding: 0.75rem;
             text-align: left;
-            border: 1px solid #ddd;
+            border-bottom: 1px solid #e2e8f0;
         }
+        th {
+            background-color: #f8fafc;
+            cursor: pointer;
+        }
+        th:hover {
+            background-color: #edf2f7;
+        }
+        .model-link {
+            color: #3182ce;
+            text-decoration: none;
+        }
+        .model-link:hover {
+            text-decoration: underline;
+        }
+        .check {
+            color: #48bb78;
+        }
+        .cross {
+            color: #f56565;
+        }
+        .stats {
+            background-color: #f8fafc;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .stat-item {
+            padding: 0.5rem;
+        }
+
+        .header-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 1rem 0 2rem 0;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .header-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
     </style>
+
 </head>
 <body>
+    <div class="container">
+        <div class="header-section">
+            <h1>Awesome SMLs</h1>
+            <img src="female-borg.jpg" alt="AI Robot" class="header-image">
+        </div>
+        
+        <p class="description">This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with Ollama</p>
+        
+        <div id="loadingState" class="loading">
+            Loading data...
+        </div>
 
-    <h1>Awesome SMLs</h1>
-    <p>This is the list of the 🐥 SMLs I use on my Raspberry Pi5 (8GB RAM) with 🦙 <a href="https://ollama.com/">Ollama</a>:</p>
+        <div id="errorState" class="error" style="display: none">
+            Error loading data. Please check if models.json is in the correct location.
+        </div>
 
-    <table id="smlTable" class="display">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Size</th>
-                <th>Tag</th>
-                <th>Remark</th>
-                <th>Kind</th>
-                <th>URL</th>
-                <th>Good on Pi5</th>
-                <th>Usable on Pi5</th>
-            </tr>
-        </thead>
-        <tbody id="smlTableBody">
-            <!-- Content will be populated via JavaScript -->
-        </tbody>
-    </table>
+        <div id="mainContent" style="display: none">
+            <div class="stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <strong>Total Models:</strong> <span id="totalModels">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Good on Pi5:</strong> <span id="goodOnPi5">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Usable on Pi5:</strong> <span id="usableOnPi5">0</span>
+                    </div>
+                </div>
+            </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="data.js"></script>
-    <script>
-        $(document).ready(function() {
-            var tableData = '';
+            <div class="filters">
+                <input 
+                    id="searchInput"
+                    type="text" 
+                    placeholder="Search models..."
+                    hx-trigger="keyup changed delay:300ms"
+                    hx-target="#modelsTable"
+                    oninput="handleSearch(this.value)"
+                >
+                <select id="kindFilter" onchange="handleKindFilter(this.value)">
+                    <option value="">All kinds</option>
+                    <option value="code">Code</option>
+                    <option value="embedding">Embedding</option>
+                    <option value="tools">Tools</option>
+                    <option value="math">Math</option>
+                </select>
+                <select id="pi5Filter" onchange="handlePi5Filter(this.value)">
+                    <option value="">All Pi5 compatibility</option>
+                    <option value="good">Good on Pi5</option>
+                    <option value="usable">Usable on Pi5</option>
+                </select>
+            </div>
 
-            // Loop through the JSON data and populate the table rows
-            smlData.models.forEach(function(model) {
-                tableData += `
+            <table id="modelsTable">
+                <thead>
                     <tr>
-                        <td>${model.name}</td>
-                        <td>${model.size}</td>
-                        <td>${model.tag}</td>
-                        <td>${model.remark}</td>
-                        <td>${model.kind}</td>
-                        <td><a href="${model.url}" target="_blank">${model.url}</a></td>
-                        <td>${model.good_on_pi5 ? 'Yes' : 'No'}</td>
-                        <td>${model.usable_on_pi5 ? 'Yes' : 'No'}</td>
+                        <th onclick="sortTable(0)">Name</th>
+                        <th onclick="sortTable(1)">Size</th>
+                        <th onclick="sortTable(2)">Tag</th>
+                        <th onclick="sortTable(3)">Remark</th>
+                        <th onclick="sortTable(4)">Kind</th>
+                        <th>URL</th>
+                        <th onclick="sortTable(6)">Good on Pi5</th>
+                        <th onclick="sortTable(7)">Usable on Pi5</th>
                     </tr>
-                `;
-            });
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-            $('#smlTableBody').html(tableData);
+    <script>
+        let smlData = { models: [] };
+        let currentSearchTerm = '';
+        let currentKindFilter = '';
+        let currentPi5Filter = '';
 
-            // Initialize DataTables with 25 entries shown by default
-            $('#smlTable').DataTable({
-                "pageLength": 25
+        // Function to update statistics with filtered data
+        function updateStats(filteredModels) {
+            document.getElementById('totalModels').textContent = filteredModels.length;
+            document.getElementById('goodOnPi5').textContent = filteredModels.filter(m => m.good_on_pi5).length;
+            document.getElementById('usableOnPi5').textContent = filteredModels.filter(m => m.usable_on_pi5).length;
+        }
+
+        function updateUIState(loading, error) {
+            document.getElementById('loadingState').style.display = loading ? 'block' : 'none';
+            document.getElementById('errorState').style.display = error ? 'block' : 'none';
+            document.getElementById('mainContent').style.display = (!loading && !error) ? 'block' : 'none';
+        }
+
+        async function loadData() {
+            try {
+                updateUIState(true, false);
+                const response = await fetch('models.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                smlData = await response.json();
+                applyFilters();
+                updateUIState(false, false);
+            } catch (error) {
+                console.error('Error loading data:', error);
+                updateUIState(false, true);
+            }
+        }
+
+        function renderTable(models) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = models.map(model => `
+                <tr>
+                    <td>${model.name}</td>
+                    <td>${model.size}</td>
+                    <td>${model.tag}</td>
+                    <td>${model.remark}</td>
+                    <td>${model.kind}</td>
+                    <td><a href="${model.url}" class="model-link" target="_blank">Link</a></td>
+                    <td>${model.good_on_pi5 ? '<span class="check">✓</span>' : '<span class="cross">✗</span>'}</td>
+                    <td>${model.usable_on_pi5 ? '<span class="check">✓</span>' : '<span class="cross">✗</span>'}</td>
+                </tr>
+            `).join('');
+            
+            // Update visual state of filters
+            document.getElementById('kindFilter').classList.toggle('active-filter', currentKindFilter !== '');
+            document.getElementById('pi5Filter').classList.toggle('active-filter', currentPi5Filter !== '');
+        }
+
+        function applyFilters() {
+            let filteredModels = smlData.models;
+
+            // Apply search filter
+            if (currentSearchTerm) {
+                filteredModels = filteredModels.filter(model => 
+                    Object.values(model).some(value => 
+                        String(value).toLowerCase().includes(currentSearchTerm.toLowerCase())
+                    )
+                );
+            }
+
+            // Apply kind filter
+            if (currentKindFilter) {
+                filteredModels = filteredModels.filter(model => 
+                    model.kind.toLowerCase().includes(currentKindFilter.toLowerCase())
+                );
+            }
+
+            // Apply Pi5 filter
+            if (currentPi5Filter === 'good') {
+                filteredModels = filteredModels.filter(model => model.good_on_pi5);
+            } else if (currentPi5Filter === 'usable') {
+                filteredModels = filteredModels.filter(model => model.usable_on_pi5);
+            }
+
+            renderTable(filteredModels);
+            updateStats(filteredModels);
+        }
+
+        function handleSearch(value) {
+            currentSearchTerm = value;
+            applyFilters();
+        }
+
+        function handleKindFilter(value) {
+            currentKindFilter = value;
+            document.getElementById('pi5Filter').value = '';
+            currentPi5Filter = '';
+            applyFilters();
+        }
+
+        function handlePi5Filter(value) {
+            currentPi5Filter = value;
+            document.getElementById('kindFilter').value = '';
+            currentKindFilter = '';
+            applyFilters();
+        }
+
+        function sortTable(column) {
+            const tbody = document.getElementById('tableBody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            rows.sort((a, b) => {
+                const aValue = a.cells[column].textContent;
+                const bValue = b.cells[column].textContent;
+                return aValue.localeCompare(bValue);
             });
-        });
+            
+            tbody.innerHTML = '';
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Initialize table when document is ready
+        document.addEventListener('DOMContentLoaded', loadData);
     </script>
 </body>
 </html>

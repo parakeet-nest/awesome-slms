@@ -2,6 +2,10 @@
 
 This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with Ollama
 
+<div align="center">
+  <img width="40%" height="40%" src="female-borg.jpg" alt="Description of the image">
+</div>
+
 | Name | Size | Tag | Remark | Kind | URL | Good on Pi5 | Usable on Pi5 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | CodeGemma 2b | 1.6GB | 2B | Fill-in-the-middle code completion | code | [Link](https://ollama.com/library/codegemma:2b) | ❌ | ✅ |

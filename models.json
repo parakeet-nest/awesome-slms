@@ -1,7 +1,4 @@
-const smlData = 
   {
-    "title": "Awesome SMLs",
-    "description": "This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with Ollama",
     "models": [
       {
         "name": "CodeGemma 2b",
@@ -396,44 +393,3 @@ const smlData =
     ]
   }
 
-
-function generateMarkdownTable(data) {
-  const headers = [
-    'Name', 'Size', 'Tag', 'Remark', 'Kind', 'URL', 'Good on Pi5', 'Usable on Pi5'
-  ];
-
-  let markdown = `# ${data.title}\n\n${data.description}\n\n`;
-  markdown += `| ${headers.join(' | ')} |\n`;
-  markdown += `| ${headers.map(() => '---').join(' | ')} |\n`;
-
-  data.models.forEach(model => {
-    const row = [
-      model.name,
-      model.size,
-      model.tag,
-      model.remark,
-      model.kind,
-      `[Link](${model.url})`,
-      model.good_on_pi5 ? '✅' : '❌',
-      model.usable_on_pi5 ? '✅' : '❌'
-    ];
-    markdown += `| ${row.join(' | ')} |\n`;
-  });
-
-  return markdown;
-}
-  
-
-
-function generate() {
-  mdContent = ``
-
-  mdContent += generateMarkdownTable(smlData)
-  const fs = require('fs')
-  fs.writeFileSync("README.md", mdContent);
-}
-
-// Only run the main function if this script is run directly (not imported)
-if (require.main === module) {
-  generate();
-}
