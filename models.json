@@ -1,7 +1,7 @@
   {
     "models": [
       {
-        "name": "CodeGemma 2b",
+        "name": "codegemma:2b",
         "size": "1.6GB",
         "tag": "2B",
         "remark": "Fill-in-the-middle code completion",
@@ -11,27 +11,27 @@
         "usable_on_pi5": true
       },
       {
-        "name": "Gemma 2b",
+        "name": "gemma:2b",
         "size": "1.7GB",
         "tag": "2B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/gemma:2b",
         "good_on_pi5": false,
         "usable_on_pi5": true
       },
       {
-        "name": "Gemma2 2b",
+        "name": "gemma2:2b",
         "size": "1.6GB",
         "tag": "2B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/gemma2:2b",
         "good_on_pi5": false,
         "usable_on_pi5": true
       },
       {
-        "name": "All-Minilm 22m",
+        "name": "all-minilm:22m",
         "size": "46MB",
         "tag": "22M",
         "remark": "Only Embeddings",
@@ -41,7 +41,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "All-Minilm 33m",
+        "name": "all-minilm:33m",
         "size": "67MB",
         "tag": "33M",
         "remark": "Only Embeddings",
@@ -51,67 +51,67 @@
         "usable_on_pi5": true
       },
       {
-        "name": "DeepSeek Coder 1.3b",
+        "name": "deepseek-coder:1.3b",
         "size": "776MB",
         "tag": "1.3B",
         "remark": "Trained on both 87% code and 13% natural language",
         "kind": "code",
-        "url": "https://ollama.com/library/deepseek-coder",
+        "url": "https://ollama.com/library/deepseek-coder:1.3b",
         "good_on_pi5": true,
         "usable_on_pi5": true
       },
       {
-        "name": "TinyLlama 1.1b",
+        "name": "tinyllama",
         "size": "638MB",
         "tag": "1.1B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/tinyllama",
         "good_on_pi5": true,
         "usable_on_pi5": true
       },
       {
-        "name": "TinyDolphin 1.1b",
+        "name": "tinydolphin",
         "size": "637MB",
         "tag": "1.1B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/tinydolphin",
         "good_on_pi5": true,
         "usable_on_pi5": true
       },
       {
-        "name": "Phi3 Mini",
+        "name": "phi3:mini",
         "size": "2.4GB",
         "tag": "3B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/phi3:mini",
         "good_on_pi5": false,
         "usable_on_pi5": true
       },
       {
-        "name": "Phi3.5",
+        "name": "phi3.5",
         "size": "2.2GB",
         "tag": "3B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/phi3.5",
         "good_on_pi5": false,
         "usable_on_pi5": true
       },
       {
-        "name": "Granite-code 3b",
+        "name": "granite-code:3b",
         "size": "2.0GB",
         "tag": "3B",
         "remark": "",
         "kind": "code",
-        "url": "https://ollama.com/library/granite-code",
+        "url": "https://ollama.com/library/granite-code:3b",
         "good_on_pi5": false,
         "usable_on_pi5": true
       },
       {
-        "name": "Qwen2.5 0.5b",
+        "name": "qwen2.5:0.5b",
         "size": "398MB",
         "tag": "0.5B",
         "remark": "",
@@ -121,7 +121,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "Qwen2.5 1.5b",
+        "name": "qwen2.5:1.5b",
         "size": "986MB",
         "tag": "1.5B",
         "remark": "",
@@ -131,7 +131,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "Qwen2.5 3b",
+        "name": "qwen2.5:3b",
         "size": "1.9GB",
         "tag": "3B",
         "remark": "",
@@ -141,7 +141,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "Qwen2.5 Coder 1.5b",
+        "name": "qwen2.5-coder:1.5b",
         "size": "986MB",
         "tag": "1.5B",
         "remark": "",
@@ -151,37 +151,37 @@
         "usable_on_pi5": true
       },
       {
-        "name": "Qwen2 0.5b",
+        "name": "qwen2:0.5b",
         "size": "352MB",
         "tag": "0.5B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/qwen2:0.5b",
         "good_on_pi5": true,
         "usable_on_pi5": true
       },
       {
-        "name": "Qwen2 1.5b",
+        "name": "qwen2:1.5b",
         "size": "934MB",
         "tag": "1.5B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/qwen2:1.5b",
         "good_on_pi5": false,
         "usable_on_pi5": true
       },
       {
-        "name": "Qwen 0.5b",
+        "name": "qwen:0.5b",
         "size": "395MB",
         "tag": "0.5B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/qwen:0.5b",
         "good_on_pi5": true,
         "usable_on_pi5": true
       },
       {
-        "name": "Qwen2 Math 1.5b",
+        "name": "qwen2-math:1.5b",
         "size": "935MB",
         "tag": "1.5B",
         "remark": "Specialized math language model",
@@ -191,7 +191,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "StarCoder 1b",
+        "name": "starcoder:1b",
         "size": "726MB",
         "tag": "1B",
         "remark": "Code generation model",
@@ -201,7 +201,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "StarCoder2 3b",
+        "name": "starcoder2:3b",
         "size": "1.7GB",
         "tag": "3B",
         "remark": "",
@@ -211,17 +211,17 @@
         "usable_on_pi5": true
       },
       {
-        "name": "Stable LM 2 1.6b",
+        "name": "stablelm2:1.6b",
         "size": "983MB",
         "tag": "1.6B",
         "remark": "LLM trained on multilingual data in English, Spanish, German, Italian, French, Portuguese, and Dutch.",
-        "kind": "",
-        "url": "https://ollama.com/library/stablelm2",
+        "kind": "chat",
+        "url": "https://ollama.com/library/stablelm2:1.6b",
         "good_on_pi5": true,
         "usable_on_pi5": true
       },
       {
-        "name": "Stable Code 3b",
+        "name": "stable-code:3b",
         "size": "1.6GB",
         "tag": "3B",
         "remark": "Coding model",
@@ -231,31 +231,31 @@
         "usable_on_pi5": true
       },
       {
-        "name": "Replete-Coder Qwen2 1.5b",
+        "name": "rouge/replete-coder-qwen2-1.5b:Q8",
         "size": "1.9GB",
         "tag": "1.5B",
         "remark": "Coding capabilities + non-coding data, fully cleaned and uncensored (mat+tool? to be tested)",
         "kind": "code",
         "url": "https://ollama.com/rouge/replete-coder-qwen2-1.5b:Q8",
-        "good_on_pi5": true,
+        "good_on_pi5": false,
         "usable_on_pi5": true
       },
       {
-        "name": "Dolphin-Phi 2.7b",
+        "name": "dolphin-phi:2.7b",
         "size": "1.6GB",
         "tag": "2.7B",
         "remark": "uncensored",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/library/dolphin-phi:2.7b",
         "good_on_pi5": false,
         "usable_on_pi5": true
       },
       {
-        "name": "Dolphin gemma2 2b",
+        "name": "CognitiveComputations/dolphin-gemma2:2b",
         "size": "1.6GB",
         "tag": "2B",
         "remark": "",
-        "kind": "",
+        "kind": "chat",
         "url": "https://ollama.com/CognitiveComputations/dolphin-gemma2:2b",
         "good_on_pi5": false,
         "usable_on_pi5": true
@@ -291,7 +291,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "mxbai-embed-large",
+        "name": "mxbai-embed-large:335m",
         "size": "670MB",
         "tag": "335M",
         "remark": "Only Embeddings",
@@ -301,7 +301,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "nomic-embed-text",
+        "name": "nomic-embed-text:v1.5",
         "size": "274MB",
         "tag": "137M",
         "remark": "Only Embeddings",
@@ -311,7 +311,7 @@
         "usable_on_pi5": true
       },
       {
-        "name": "Yi Coder 1.5b",
+        "name": "yi-coder:1.5b",
         "size": "866MB",
         "tag": "1.5B",
         "remark": "Code",
@@ -335,7 +335,7 @@
         "size": "352MB",
         "tag": "0.5b",
         "remark": "convert HTML to Markdown",
-        "kind": "",
+        "kind": "conversion",
         "url": "https://ollama.com/library/reader-lm:0.5b",
         "good_on_pi5": true,
         "usable_on_pi5": true
@@ -345,7 +345,7 @@
         "size": "935MB",
         "tag": "1.5b",
         "remark": "convert HTML to Markdown",
-        "kind": "",
+        "kind": "conversion",
         "url": "https://ollama.com/library/reader-lm:1.5b",
         "good_on_pi5": true,
         "usable_on_pi5": true
@@ -355,7 +355,7 @@
         "size": "1.7GB",
         "tag": "2b",
         "remark": "evaluate the safety of text",
-        "kind": "",
+        "kind": "safety",
         "url": "https://ollama.com/library/shieldgemma:2b",
         "good_on_pi5": false,
         "usable_on_pi5": true
@@ -365,7 +365,7 @@
         "size": "1.6GB",
         "tag": "1b",
         "remark": "evaluate the safety of text",
-        "kind": "",
+        "kind": "safety",
         "url": "https://ollama.com/library/llama-guard3:1b",
         "good_on_pi5": false,
         "usable_on_pi5": true
@@ -388,6 +388,26 @@
         "kind": "chat, tools, embedding",
         "url": "https://ollama.com/library/granite3-moe:1b",
         "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "llama3.2:1b",
+        "size": "1.3GB",
+        "tag": "1b",
+        "remark": "",
+        "kind": "chat, tools",
+        "url": "https://ollama.com/library/llama3.2:1b",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "llama3.2:3b",
+        "size": "2.0GB",
+        "tag": "3b",
+        "remark": "",
+        "kind": "chat, tools",
+        "url": "https://ollama.com/library/llama3.2:3b",
+        "good_on_pi5": false,
         "usable_on_pi5": true
       }
     ]

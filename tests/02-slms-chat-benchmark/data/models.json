@@ -1,0 +1,59 @@
+[
+  {
+    "name": "gemma:2b"
+  },
+  {
+    "name": "gemma2:2b"
+  },
+  {
+    "name": "tinyllama"
+  },
+  {
+    "name": "tinydolphin"
+  },
+  {
+    "name": "phi3:mini"
+  },
+  {
+    "name": "phi3.5"
+  },
+  {
+    "name": "qwen2.5:0.5b"
+  },
+  {
+    "name": "qwen2.5:1.5b"
+  },
+  {
+    "name": "qwen2.5:3b"
+  },
+  {
+    "name": "qwen2:0.5b"
+  },
+  {
+    "name": "qwen2:1.5b"
+  },
+  {
+    "name": "qwen:0.5b"
+  },
+  {
+    "name": "stablelm2:1.6b"
+  },
+  {
+    "name": "dolphin-phi:2.7b"
+  },
+  {
+    "name": "CognitiveComputations/dolphin-gemma2:2b"
+  },
+  {
+    "name": "granite3-dense:2b"
+  },
+  {
+    "name": "granite3-moe:1b"
+  },
+  {
+    "name": "llama3.2:1b"
+  },
+  {
+    "name": "llama3.2:3b"
+  }  
+]

@@ -1,0 +1,135 @@
+[
+  {
+    "call_number": 1,
+    "duration": 11.264454547,
+    "ollama_url": "http://bob.local:11434",
+    "model": "gemma:2b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 2,
+    "duration": 43.961505895,
+    "ollama_url": "http://bob.local:11434",
+    "model": "gemma2:2b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 3,
+    "duration": 9.128555004,
+    "ollama_url": "http://bob.local:11434",
+    "model": "tinyllama",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 4,
+    "duration": 7.105403211,
+    "ollama_url": "http://bob.local:11434",
+    "model": "tinydolphin",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 5,
+    "duration": 46.060228854,
+    "ollama_url": "http://bob.local:11434",
+    "model": "phi3:mini",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 6,
+    "duration": 62.22818782,
+    "ollama_url": "http://bob.local:11434",
+    "model": "phi3.5",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 7,
+    "duration": 5.488806794,
+    "ollama_url": "http://bob.local:11434",
+    "model": "qwen2.5:0.5b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 8,
+    "duration": 23.590853387,
+    "ollama_url": "http://bob.local:11434",
+    "model": "qwen2.5:1.5b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 9,
+    "duration": 38.749584475,
+    "ollama_url": "http://bob.local:11434",
+    "model": "qwen2.5:3b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 10,
+    "duration": 9.24255088,
+    "ollama_url": "http://bob.local:11434",
+    "model": "qwen2:0.5b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 11,
+    "duration": 24.607183761,
+    "ollama_url": "http://bob.local:11434",
+    "model": "qwen2:1.5b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 12,
+    "duration": 2.572229084,
+    "ollama_url": "http://bob.local:11434",
+    "model": "qwen:0.5b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 13,
+    "duration": 25.41606847,
+    "ollama_url": "http://bob.local:11434",
+    "model": "stablelm2:1.6b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 14,
+    "duration": 44.992757687,
+    "ollama_url": "http://bob.local:11434",
+    "model": "dolphin-phi:2.7b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 15,
+    "duration": 43.52776677,
+    "ollama_url": "http://bob.local:11434",
+    "model": "CognitiveComputations/dolphin-gemma2:2b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 16,
+    "duration": 38.551116769,
+    "ollama_url": "http://bob.local:11434",
+    "model": "granite3-dense:2b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 17,
+    "duration": 3.441324251,
+    "ollama_url": "http://bob.local:11434",
+    "model": "granite3-moe:1b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 18,
+    "duration": 28.116581054,
+    "ollama_url": "http://bob.local:11434",
+    "model": "llama3.2:1b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 19,
+    "duration": 50.429031648,
+    "ollama_url": "http://bob.local:11434",
+    "model": "llama3.2:3b",
+    "run_on_pi": false
+  }
+]
