@@ -1,7 +1,7 @@
 # Awesome SMLs
 
 <div align="center">
-  <img width="40%" height="40%" src="female-borg.jpg" alt="Description of the image">
+  <img width="50%" height="50%" src="female-borg.jpg" alt="Description of the image">
 </div>
 
 

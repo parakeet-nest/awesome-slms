@@ -16,7 +16,7 @@ function generateMarkdownTable(data, title, description, picture) {
   ];
 
   let markdown = `# ${title}\n\n`;
-  markdown += `<div align="center">\n  <img width="40%" height="40%" src="${picture}" alt="Description of the image">\n</div>\n\n`;
+  markdown += `<div align="center">\n  <img width="50%" height="50%" src="${picture}" alt="Description of the image">\n</div>\n\n`;
   markdown += `\n\n${description}\n\n`;
   markdown += `| ${headers.join(' | ')} |\n`;
   markdown += `| ${headers.map(() => '---').join(' | ')} |\n`;
