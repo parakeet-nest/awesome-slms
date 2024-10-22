@@ -1,0 +1,30 @@
+services:
+
+  download-llm-to-the-rpi:
+    image: curlimages/curl:8.6.0
+    entrypoint: ["curl", "${PI_OLLAMA_BASE_URL}/api/pull", "-d", "{\"name\": \"${LLM}\"}"]
+  
+  download-llm-to-the-host:
+    image: curlimages/curl:8.6.0
+    entrypoint: ["curl", "${OLLAMA_BASE_URL}/api/pull", "-d", "{\"name\": \"${LLM}\"}"]
+
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      - PI_OLLAMA_BASE_URL=${PI_OLLAMA_BASE_URL}
+      - LLM=${LLM}
+      # host.docker.internal: listening the host from the container
+
+    depends_on:
+      download-llm-to-the-rpi:
+        condition: service_completed_successfully
+      download-llm-to-the-host:
+        condition: service_completed_successfully

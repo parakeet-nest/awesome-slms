@@ -1,0 +1,16 @@
+[
+  {
+    "call_number": 1,
+    "duration": 1.532630918,
+    "ollama_url": "http://host.docker.internal:11434",
+    "model": "qwen2.5:0.5b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 2,
+    "duration": 4.025944668,
+    "ollama_url": "http://bob.local:11434",
+    "model": "qwen2.5:0.5b",
+    "run_on_pi": true
+  }
+]

@@ -1,0 +1,37 @@
+services:
+
+  slms-puller:
+    image: alpine:latest
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+    entrypoint: [ "sh", "-c" ]
+    command: 
+      - |
+        echo "Installing dependencies..."
+        apk add --no-cache curl jq
+        echo "Running script with sh..."
+        sh data/pull-llms.sh
+    #extra_hosts:
+    #  - "host.docker.internal:host-gateway"
+
+
+  benchmark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      # host.docker.internal: listening the host from the container
+
+    depends_on:
+      slms-puller:
+        condition: service_completed_successfully
+
