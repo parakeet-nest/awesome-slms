@@ -1,10 +1,12 @@
 # Awesome SMLs
 
-This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with Ollama
-
 <div align="center">
   <img width="40%" height="40%" src="female-borg.jpg" alt="Description of the image">
 </div>
+
+
+
+This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with Ollama
 
 | Name | Size | Tag | Remark | Kind | URL | Good on Pi5 | Usable on Pi5 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
