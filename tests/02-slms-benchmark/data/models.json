@@ -25,6 +25,12 @@
   },
   {
     "name": "qwen:0.5b"
-  }
+  },
+  {
+    "name": "llama3.2:1b"
+  },
+  {
+    "name": "llama3.2:3b"
+  }  
   
 ]

@@ -58,7 +58,10 @@ func RunChatCompletion(ctx context.Context, ollamaURL, model string) {
 	req := &api.ChatRequest{
 		Model:    model,
 		Messages: messages,
-		Options:  map[string]interface{}{},
+		Options:   map[string]interface{}{
+			"temperature": 0.0,
+			"num_predict": 200,
+		},
 	}
 
 	respFunc := func(resp api.ChatResponse) error {

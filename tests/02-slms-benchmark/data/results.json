@@ -1,65 +1,79 @@
 [
   {
     "call_number": 1,
-    "duration": 23.531748385,
+    "duration": 9.240926671,
     "ollama_url": "http://bob.local:11434",
     "model": "tinyllama",
     "run_on_pi": false
   },
   {
     "call_number": 2,
-    "duration": 14.953735298,
+    "duration": 11.25929638,
     "ollama_url": "http://bob.local:11434",
     "model": "gemma:2b",
     "run_on_pi": false
   },
   {
     "call_number": 3,
-    "duration": 8.629918962,
+    "duration": 7.127063712,
     "ollama_url": "http://bob.local:11434",
     "model": "tinydolphin",
     "run_on_pi": false
   },
   {
     "call_number": 4,
-    "duration": 4.760735502,
+    "duration": 5.468518336,
     "ollama_url": "http://bob.local:11434",
     "model": "qwen2.5:0.5b",
     "run_on_pi": false
   },
   {
     "call_number": 5,
-    "duration": 30.104564139,
+    "duration": 23.518784928,
     "ollama_url": "http://bob.local:11434",
     "model": "qwen2.5:1.5b",
     "run_on_pi": false
   },
   {
     "call_number": 6,
-    "duration": 40.275929975,
+    "duration": 38.794107351,
     "ollama_url": "http://bob.local:11434",
     "model": "qwen2.5:3b",
     "run_on_pi": false
   },
   {
     "call_number": 7,
-    "duration": 13.022782965,
+    "duration": 9.205051005,
     "ollama_url": "http://bob.local:11434",
     "model": "qwen2:0.5b",
     "run_on_pi": false
   },
   {
     "call_number": 8,
-    "duration": 46.501925021,
+    "duration": 24.286522094,
     "ollama_url": "http://bob.local:11434",
     "model": "qwen2:1.5b",
     "run_on_pi": false
   },
   {
     "call_number": 9,
-    "duration": 2.529524834,
+    "duration": 2.469048252,
     "ollama_url": "http://bob.local:11434",
     "model": "qwen:0.5b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 10,
+    "duration": 28.178057054,
+    "ollama_url": "http://bob.local:11434",
+    "model": "llama3.2:1b",
+    "run_on_pi": false
+  },
+  {
+    "call_number": 11,
+    "duration": 49.921054023,
+    "ollama_url": "http://bob.local:11434",
+    "model": "llama3.2:3b",
     "run_on_pi": false
   }
 ]
