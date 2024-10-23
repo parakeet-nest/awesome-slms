@@ -11,7 +11,7 @@ let markdown = `# Duration of a chat completion from a list of SLMs.
 **Prompt**:
 
 \`\`\`golang
-systemInstructions := \`You a useful AI agent.\`
+systemInstructions := \`You are useful AI agent.\`
 question := \`Who is Jean-Luc Picard?\`
 \`\`\`
 
@@ -38,6 +38,6 @@ results.forEach((result, index) => {
 });
 
 // Write the Markdown table to a file
-fs.writeFileSync('benchmark_results.md', markdown);
+fs.writeFileSync('benchmarks_results.md', markdown);
 
-console.log('benchmark_results.md generated');
+console.log('benchmarks_results.md generated');

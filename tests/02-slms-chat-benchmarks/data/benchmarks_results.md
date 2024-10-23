@@ -3,7 +3,7 @@
 **Prompt**:
 
 ```golang
-systemInstructions := `You a useful AI agent.`
+systemInstructions := `You are useful AI agent.`
 question := `Who is Jean-Luc Picard?`
 ```
 

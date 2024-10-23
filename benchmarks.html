@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SML Benchmarks</title>
+    <script src="js/htmx.min.js"></script>
+    <script src="js/chart.min.js"></script>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        .description {
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+        .nav-links {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #f8fafc;
+            border-radius: 8px;
+        }
+        .nav-links a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .chart-container {
+            margin: 2rem 0;
+            height: 600px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f8fafc;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: #f8fafc;
+            border-radius: 8px;
+        }
+        .stat-card {
+            padding: 1rem;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        .stat-label {
+            color: #4a5568;
+            font-size: 0.875rem;
+        }
+
+        .header-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 1rem 0 2rem 0;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .header-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+
+        <div class="header-section">
+            <h1>SML Benchmarks</h1>
+            <img src="male-borg.jpg" alt="AI Robot" class="header-image">
+        </div>
+        
+        <div class="nav-links">
+            🏠 <a href="index.html">Back to Models List</a>
+        </div>
+
+        <p class="description">
+        Performance benchmarks for different <b>SMLs</b> running on Ollama.<br>
+    <pre><code>
+    System instructions: You are useful AI agent.
+    User question: Who is Jean-Luc Picard?
+    Options:
+        "temperature": 0.0
+        "num_predict": 200
+    </code></pre>
+        </p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalModels">0</div>
+                <div class="stat-label">Models Tested</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgDuration">0</div>
+                <div class="stat-label">Average Duration (s)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="fastestModel">-</div>
+                <div class="stat-label">Fastest Model</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="slowestModel">-</div>
+                <div class="stat-label">Slowest Model</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="benchmarkChart"></canvas>
+        </div>
+
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Duration (s)</th>
+                    <th>Call Number</th>
+                    <th>Ollama URL</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let benchmarkData;
+
+        async function loadData() {
+            try {
+                const response = await fetch('results.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                benchmarkData = await response.json();
+                
+                // Sort data by duration
+                benchmarkData.sort((a, b) => a.duration - b.duration);
+                
+                updateStats();
+                renderChart();
+                renderTable();
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        function updateStats() {
+            const totalModels = benchmarkData.length;
+            const avgDuration = (benchmarkData.reduce((sum, item) => sum + item.duration, 0) / totalModels).toFixed(2);
+            const fastestModel = benchmarkData[0];
+            const slowestModel = benchmarkData[benchmarkData.length - 1];
+
+            document.getElementById('totalModels').textContent = totalModels;
+            document.getElementById('avgDuration').textContent = avgDuration;
+            document.getElementById('fastestModel').textContent = fastestModel.model;
+            document.getElementById('slowestModel').textContent = slowestModel.model;
+        }
+
+        function renderChart() {
+            const ctx = document.getElementById('benchmarkChart').getContext('2d');
+            
+            const data = {
+                labels: benchmarkData.map(item => item.model),
+                datasets: [{
+                    label: 'Duration (seconds)',
+                    data: benchmarkData.map(item => item.duration),
+                    backgroundColor: 'rgba(49, 130, 206, 0.6)',
+                    borderColor: 'rgba(49, 130, 206, 1)',
+                    borderWidth: 1
+                }]
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Duration (seconds)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
+            tbody.innerHTML = benchmarkData.map(item => `
+                <tr>
+                    <td>${item.model}</td>
+                    <td>${item.duration.toFixed(2)}</td>
+                    <td>${item.call_number}</td>
+                    <td>${item.ollama_url}</td>
+                </tr>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
