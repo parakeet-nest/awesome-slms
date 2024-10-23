@@ -38,8 +38,8 @@ function generateMarkdownTable(data, title, description, picture) {
   return markdown;
 }
   
-let title = "Awesome SMLs"
-let description = "This is the list of the SMLs I use on my Raspberry Pi5 (8GB RAM) with Ollama"
+let title = "Awesome SLMs"
+let description = "This is the list of the SLMs I use on my Raspberry Pi5 (8GB RAM) with Ollama"
 let picture = "female-borg.jpg"
 
 let mdContent = ``
