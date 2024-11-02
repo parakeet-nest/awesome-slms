@@ -55,5 +55,23 @@
   },
   {
     "name": "llama3.2:3b"
-  }  
+  },
+  {
+    "name": "smollm:135m"
+  },
+  {
+    "name": "smollm:360m"
+  },
+  {
+    "name": "smollm:1.7b"
+  },
+  {
+    "name": "smollm2:135m"
+  },
+  {
+    "name": "smollm2:360m"
+  },
+  {
+    "name": "smollm2:1.7b"
+  }          
 ]

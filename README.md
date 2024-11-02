@@ -51,3 +51,9 @@ This is the list of the SLMs I use on my Raspberry Pi5 (8GB RAM) with Ollama
 | granite3-moe:1b | 822MB | 1b |  | chat, tools, embedding | [Link](https://ollama.com/library/granite3-moe:1b) | ✅ | ✅ |
 | llama3.2:1b | 1.3GB | 1b |  | chat, tools | [Link](https://ollama.com/library/llama3.2:1b) | ❌ | ✅ |
 | llama3.2:3b | 2.0GB | 3b |  | chat, tools | [Link](https://ollama.com/library/llama3.2:3b) | ❌ | ✅ |
+| smollm:135m | 92MB | 135m | 🖐️ can run on a Pi 3A+ | 🤪 hard to control | chat | [Link](https://ollama.com/library/smollm:135m) | ✅ | ✅ |
+| smollm:360m | 229MB | 360m | 🖐️ can run well on a Pi 4 8GB | chat | [Link](https://ollama.com/library/smollm:360m) | ✅ | ✅ |
+| smollm:1.7b | 991MB | 1.7b |  | chat | [Link](https://ollama.com/library/smollm:1.7b) | ✅ | ✅ |
+| smollm2:135m | 271MB | 135m | 🖐️ can run well on a Pi 4 8GB | chat, tools | [Link](https://ollama.com/library/smollm2:135m) | ✅ | ✅ |
+| smollm2:360m | 726MB | 360m | 🖐️ can run on a Pi 4 8GB | chat, tools | [Link](https://ollama.com/library/smollm2:360m) | ✅ | ✅ |
+| smollm2:1.7b | 1.8GB | 1.7b |  | chat, tools | [Link](https://ollama.com/library/smollm2:1.7b) | ❌ | ✅ |

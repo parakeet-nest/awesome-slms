@@ -409,6 +409,66 @@
         "url": "https://ollama.com/library/llama3.2:3b",
         "good_on_pi5": false,
         "usable_on_pi5": true
+      },
+      {
+        "name": "smollm:135m",
+        "size": "92MB",
+        "tag": "135m",
+        "remark": "🖐️ can run on a Pi 3A+ | 🤪 hard to control",
+        "kind": "chat",
+        "url": "https://ollama.com/library/smollm:135m",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "smollm:360m",
+        "size": "229MB",
+        "tag": "360m",
+        "remark": "🖐️ can run well on a Pi 4 8GB",
+        "kind": "chat",
+        "url": "https://ollama.com/library/smollm:360m",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "smollm:1.7b",
+        "size": "991MB",
+        "tag": "1.7b",
+        "remark": "",
+        "kind": "chat",
+        "url": "https://ollama.com/library/smollm:1.7b",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "smollm2:135m",
+        "size": "271MB",
+        "tag": "135m",
+        "remark": "🖐️ can run well on a Pi 4 8GB",
+        "kind": "chat, tools",
+        "url": "https://ollama.com/library/smollm2:135m",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "smollm2:360m",
+        "size": "726MB",
+        "tag": "360m",
+        "remark": "🖐️ can run on a Pi 4 8GB",
+        "kind": "chat, tools",
+        "url": "https://ollama.com/library/smollm2:360m",
+        "good_on_pi5": true,
+        "usable_on_pi5": true
+      },
+      {
+        "name": "smollm2:1.7b",
+        "size": "1.8GB",
+        "tag": "1.7b",
+        "remark": "",
+        "kind": "chat, tools",
+        "url": "https://ollama.com/library/smollm2:1.7b",
+        "good_on_pi5": false,
+        "usable_on_pi5": true
       }
     ]
   }
